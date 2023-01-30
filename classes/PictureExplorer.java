@@ -81,7 +81,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   private JMenuItem fiveHundred;
   
   /** The picture being explored */
-  private DigitalPicture picture;
+  private final DigitalPicture picture;
   
   /** The image icon used to display the picture */
   private ImageIcon scrollImageIcon;
@@ -452,8 +452,8 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       
       // calculate how to position the current position in the middle of the viewing
       // area
-      int viewX = xPos - (int) (rectWidth / 2);
-      int viewY = yPos - (int) (rectHeight / 2);
+      int viewX = xPos - (rectWidth / 2);
+      int viewY = yPos - (rectHeight / 2);
       
       // reposition the viewX and viewY if outside allowed values
       if (viewX < 0)
@@ -523,11 +523,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
    */
   private boolean isLocationInPicture(int column, int row)
   {
-    boolean result = false; // the default is false
-    if (column >= 0 && column < picture.getWidth() &&
-        row >= 0 && row < picture.getHeight())
-      result = true;
-    
+    boolean result = column >= 0 && column < picture.getWidth() &&
+            row >= 0 && row < picture.getHeight(); // the default is false
+
     return result;
   }
   
@@ -798,7 +796,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   /**
    * Test Main.  It will explore the beach 
    */
-  public static void main( String args[])
+  public static void main(String[] args)
   {
     Picture pix = new Picture("images/ryky-sky-wave.jpg");
 //    Picture smallPix = pix.scale(4,4);

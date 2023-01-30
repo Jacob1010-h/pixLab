@@ -17,13 +17,13 @@ public class Pixel
   ////////////////////////// fields ///////////////////////////////////
   
   /** the digital picture this pixel belongs to */
-  private DigitalPicture picture;
+  private final DigitalPicture picture;
   
   /** the x (column) location of this pixel in the picture; (0,0) is top left */
-  private int x; 
+  private final int x;
   
   /** the y (row) location of this pixel in the picture; (0,0) is top left */
-  private int y; 
+  private final int y;
   
   ////////////////////// constructors /////////////////////////////////
   

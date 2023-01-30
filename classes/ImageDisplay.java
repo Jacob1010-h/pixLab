@@ -14,7 +14,7 @@ public class ImageDisplay extends JPanel implements Scrollable
   /** the image to draw */
   private Image image;         
   /** the preferred size of the display */
-  private Dimension prefSize;  
+  private final Dimension prefSize;
   /** the current x index */
   private int currentX = 0;    
   /** the current y index */
